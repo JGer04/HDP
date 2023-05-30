@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\eduar\OneDrive\Documents\HDP\env"
+VIRTUAL_ENV="C:\Users\juare\Desktop\HDP\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
