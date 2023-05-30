@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'aplicaciones.administrador',
     'aplicaciones.trabajo',
     'aplicaciones.educacion',
+    'aplicaciones.index',
 ]
 
 MIDDLEWARE = [
