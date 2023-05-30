@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Aplicaciones externas
+    # Aplicaciones locales
     'aplicaciones.administrador',
     'aplicaciones.trabajo',
     'aplicaciones.educacion',
     'aplicaciones.index',
+    # Aplicaciones externas
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
