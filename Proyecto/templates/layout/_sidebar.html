@@ -1,8 +1,15 @@
-<div class="sidebar">
+{% load static  %}
+<div id="sidebar">
+  <div class="toggle-btn">
+    <span>&#9776;</span>
+  </div>
   <ul>
-    <li><a href="{% url 'inicio' %}">Inicio</a></li>
-    <li><a href="#">Acerca de</a></li>
-    <li><a href="#">Servicios</a></li>
-    <li><a href="#">Contacto</a></li>
+    <li>
+      <img src="{% static 'img/EISI.jpg'%}" class="logo"  style ="width: 150px; height: 150px">
+    </li>
+    <li>Inicio</li>
+    <li>Acerca de</li>
+    <li>Servicios</li>
+    <li>Contacto</li>
   </ul>
 </div>
