@@ -7,120 +7,123 @@
 
 
 {% block content %}
-
-<h1>Análisis Estadístico</h1><br>
-<p>En 2015 se llevó a cabo en El Salvador la Encuesta Nacional de Personas con Discapacidad (ENPD), 
-    la que permitió recolectar información sobre personas con y sin discapacidad en una muestra de 5,102 hogares y 
-    19,504 personas a nivel nacional. Se recolectó información sobre las características sociodemográficas de los encuestados, 
-    educación, vivienda, trabajo y condiciones laborales; así como preguntas específicas relacionadas con la discapacidad, 
-    como las deficiencias funcionales permanentes, el uso de apoyos y ayudas técnicas, el uso de servicios de habilitación y rehabilitación, y 
-    la accesibilidad en diferentes espacios.
-</p>
-<div style="padding-top: 60px;">
-    <h3>Encuesta zona Urbana</h3><br>
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr><th>Grupos de Edad</th><th>Total</th><th>Hombre</th><th>Mujer</th></tr>
-        </thead>
-        <tbody class="table-group-divider">
-            {% for e in tUrbano %}
-                <tr>
-                    <td> {{ e.grupoEdad }}</td>
-                    <td> {{ e.total }}</td>
-                    <td> {{ e.hombre }}</td>
-                    <td> {{ e.mujer }}</td>
-                </tr>
-            {% endfor %}      
-        </tbody>
-    </table>
-</div>
-    
-<div style="padding-top: 60px;"> 
-    <h3>Encuesta zona Rural</h3><br>
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr><th>Grupos de Edad</th><th>Total</th><th>Hombre</th><th>Mujer</th></tr>
-        </thead>
-        <tbody class="table-group-divider">
-            {% for i in tRural %}
-                <tr>
-                    <td> {{ i.grupoEdad }}</td>
-                    <td> {{ i.total }}</td>
-                    <td> {{ i.hombre }}</td>
-                    <td> {{ i.mujer }}</td>
-                </tr>
-            {% endfor %}
-                
-        </tbody>
-    </table>
-</div>
-
-<div style="padding-top: 60px;">
-    <h3>Tipo de Discapacidad</h3><br>
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>Tipo Discapacidad</th>
-                <th>Número Ocupadas</th>
-                <th>Porcentaje Ocupadas</th>
-                <th>Número Descocupadas</th>
-                <th>Porcentaje Descocupadas</th>
-                <th>Número Inactivas</th>
-                <th>Número Inactivas</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            
-            {% for j in tdiscapacidad %}
-                <tr>
-                    <td> {{ j.discapacidad }}</td>
-                    <td> {{ j.numero_Ocupadas }}</td>
-                    <td> {{ j.porcentaje_Ocupadas }}</td>
-                    <td> {{ j.numero_Desocupadas }}</td>
-                    <td> {{ j.porcentaje_Desocupadas }}</td>
-                    <td> {{ j.numero_Inactivas }}</td>
-                    <td> {{ j.porcentaje_Inactivas }}</td>
-                </tr>
-            {% endfor %}
-                
-        </tbody>
-    </table>
-    <p>Esta tabla resume bien lo que es de interés para el desarrollo de la investigación. 
-        Y un aspecto importante es que vemos que pese a ser el tipo de discapacidad que más prevalece, 
-        es el grupo con mayor número de personas trabajando.
-    </p>
-</div>
-
-<div style="padding-top: 60px;">
-    <h3>Categorías</h3><br>
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>Categoría</th>
-                <th>Hombre</th>
-                <th>Mujer</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            
-            {% for x in tcategoria %}
-                <tr>
-                    <td> {{ x.categoria }}</td>
-                    <td> {{ x.hombre }}</td>
-                    <td> {{ x.mujer }}</td>
-                    <td> {{ x.total }}</td>
-                </tr>
-            {% endfor %}
-                
-        </tbody>
-    </table>
-</div>
-    
-<h1 style="padding-top: 100px;">Análisis Gráfico</h1>
-
 <div>
-    <img src="Proyecto/static/img/grafico1.png">
-</div>
-{% endblock content %}
+
+    <h1>Análisis Estadístico</h1><br>
+    <p>En 2015 se llevó a cabo en El Salvador la Encuesta Nacional de Personas con Discapacidad (ENPD), 
+        la que permitió recolectar información sobre personas con y sin discapacidad en una muestra de 5,102 hogares y 
+        19,504 personas a nivel nacional. Se recolectó información sobre las características sociodemográficas de los encuestados, 
+        educación, vivienda, trabajo y condiciones laborales; así como preguntas específicas relacionadas con la discapacidad, 
+        como las deficiencias funcionales permanentes, el uso de apoyos y ayudas técnicas, el uso de servicios de habilitación y rehabilitación, y 
+        la accesibilidad en diferentes espacios.
+    </p>
+    <div style="padding-top: 60px;" >
+        <h3>Encuesta zona Urbana</h3><br>
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr><th>Grupos de Edad</th><th>Total</th><th>Hombre</th><th>Mujer</th></tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for e in tUrbano %}
+                    <tr>
+                        <td> {{ e.grupoEdad }}</td>
+                        <td> {{ e.total }}</td>
+                        <td> {{ e.hombre }}</td>
+                        <td> {{ e.mujer }}</td>
+                    </tr>
+                {% endfor %}      
+            </tbody>
+        </table>
+    </div>
+        
+    <div style="padding-top: 60px;"> 
+        <h3>Encuesta zona Rural</h3><br>
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr><th>Grupos de Edad</th><th>Total</th><th>Hombre</th><th>Mujer</th></tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for i in tRural %}
+                    <tr>
+                        <td> {{ i.grupoEdad }}</td>
+                        <td> {{ i.total }}</td>
+                        <td> {{ i.hombre }}</td>
+                        <td> {{ i.mujer }}</td>
+                    </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
     
+    <div style="padding-top: 60px;">
+        <h3>Tipo de Discapacidad</h3><br>
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Tipo Discapacidad</th>
+                    <th>Número Ocupadas</th>
+                    <th>Porcentaje Ocupadas</th>
+                    <th>Número Descocupadas</th>
+                    <th>Porcentaje Descocupadas</th>
+                    <th>Número Inactivas</th>
+                    <th>Número Inactivas</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                
+                {% for j in tdiscapacidad %}
+                    <tr>
+                        <td> {{ j.discapacidad }}</td>
+                        <td> {{ j.numero_Ocupadas }}</td>
+                        <td> {{ j.porcentaje_Ocupadas }}</td>
+                        <td> {{ j.numero_Desocupadas }}</td>
+                        <td> {{ j.porcentaje_Desocupadas }}</td>
+                        <td> {{ j.numero_Inactivas }}</td>
+                        <td> {{ j.porcentaje_Inactivas }}</td>
+                    </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+        <p>Esta tabla resume bien lo que es de interés para el desarrollo de la investigación. 
+            Y un aspecto importante es que vemos que pese a ser el tipo de discapacidad que más prevalece, 
+            es el grupo con mayor número de personas trabajando.
+        </p>
+    </div>
+    
+    <div style="padding-top: 60px;">
+        <h3>Categorías</h3><br>
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Categoría</th>
+                    <th>Hombre</th>
+                    <th>Mujer</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                
+                {% for x in tcategoria %}
+                    <tr>
+                        <td> {{ x.categoria }}</td>
+                        <td> {{ x.hombre }}</td>
+                        <td> {{ x.mujer }}</td>
+                        <td> {{ x.total }}</td>
+                    </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+        
+    <h1 style="padding-top: 100px;">Análisis Gráfico</h1>
+    
+    <div>
+        <img src="Proyecto/static/img/grafico1.png">
+    </div>
+    {% endblock content %}
+        
+</div>
+

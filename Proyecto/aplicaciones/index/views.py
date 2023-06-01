@@ -1,7 +1,6 @@
 from django.shortcuts import render
-import requests
 
 # Create your views here.
 
-def index(requests):
-    return render(requests, 'index/inicio.html')
+def index(request):
+    return render(request, 'index/inicio.html')
