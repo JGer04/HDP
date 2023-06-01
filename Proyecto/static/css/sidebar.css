@@ -1,40 +1,29 @@
 .sidebar {
-    position: fixed;
-    right: -200px; /* Oculta el sidebar inicialmente */
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    padding: 20px;
-    transition: right 0.3s ease;
-  }
-  
-  .menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menu li {
-    margin-bottom: 10px;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-  }
-  
-  .content {
-    padding: 20px;
-  }
-  
-  /* Estilos para el botón de desplegar/replegar */
-  .toggle-btn {
-    position: absolute;
-    right: -30px;
-    top: 20px;
-    background-color: #f1f1f1;
-    border: none;
-    padding: 5px;
-    font-size: 20px;
-    cursor: pointer;
-  }
+  width: 200px;
+  background-color: #f1f1f1;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-top: 10px;
+}
+
+a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.content {
+  margin-left: 200px; /* ajusta el margen para evitar solapamiento */
+  padding: 16px;
+}

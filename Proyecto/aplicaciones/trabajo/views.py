@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from.models import tablaEncuestaUrbana, tablaEncuestaRural, tablaTipoDiscapacidad, tablaCategoria, resumen, analisis
+from.models import *
 # Create your views here.
 
 def tablas(request):
@@ -9,6 +9,7 @@ def tablas(request):
     tcategoria = tablaCategoria.objects.all().order_by('id')
     resumenn = resumen.objects.all().order_by('id')
     analisiss = analisis.objects.all().order_by('id')
+    tnivel = tablaNivel.objects.all().order_by('id')
     
     return render(request, 'trabajo/trabajo.html', {
         'tUrbano': tUrbano,
@@ -16,7 +17,8 @@ def tablas(request):
         'tdiscapacidad': tdiscapacidad,
         'tcategoria':tcategoria,
         'resumen': resumenn,
-        'analisis': analisiss
+        'analisis': analisiss,
+        'tnivel':tnivel,
     })
 
 

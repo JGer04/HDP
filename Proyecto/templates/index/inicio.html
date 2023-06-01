@@ -8,37 +8,40 @@
 
 {% block content %}
     <h1 style="text-align: center">Discapacidad en El Salvador</h1>
-    <p style="text-align: justify;">La discapacidad es una condición que afecta a una gran cantidad de personas en todo el mundo, 
+    <p style="text-align: justify; font-size: x-large;">La discapacidad es una condición que afecta a una gran cantidad de personas en todo el mundo, 
         y en El Salvador no es la excepción. A pesar de que existen leyes que protegen a las personas con discapacidad en el país, 
         muchas veces se enfrentan a la discriminación y a la exclusión laboral. Se realizó una investigación que buscó identificar qué
          empresas en El Salvador contratan a personas con discapacidad y cuáles son las poblaciones de discapacitados que tienen más 
          oportunidades laborales en el país.
         </p><br>
 
-        <div style="overflow: auto;" >
-            <h4>Referente al trabajo y empleo</h4>
-            <p style="text-align: justify; float: left; width: 40%;">Se busca entender la situación actual de la inclusión laboral de personas con discapacidad en El Salvador 
-                a partir del análisis y caracterización de la población con discapacidad en base a la Encuesta Nacional de 2015</p>
-            <img src="{% static 'img/index1.jpg'%}" style="float: right; width: 50%;">
+        <div style="display: flex; align-items: center;" >
+            <div style="margin-right: 100px;">
+                <h3>Referente al Trabajo y Empleo</h3>
+                <p style="text-align: justify; font-size: x-large;">Se busca entender la situación actual de la inclusión laboral de personas con discapacidad en El Salvador 
+                    a partir del análisis y caracterización de la población con discapacidad en base a la Encuesta Nacional de 2015</p>
+                    <a href="{% url 'trabajo' %}">
+                        <button type="button" class="btn btn-primary" style="margin-top: 10px;">Trabajo y Empleo</button> 
+                    </a>
+                    
+                                    
+            </div>
+            <img src="{% static 'img/index1.jpg'%}" style ="width: 400px; height: 300px;">   
         </div>
-
-        <div  style="padding-bottom: 20px">
-            <a href="{% url 'trabajo' %}">
-                <button type="button" class="btn btn-primary" style="float:left;" >Trabajo y Empleo</button>
-            </a>      
-        </div>
-        <br>
-        <br>
         
+        <div style="display: flex; align-items: center; padding-top: 100px ;" >
+            <div style="margin-right: 100px;">
+                <h3>Referente a la Educación</h3>
+                <p style="text-align: justify; font-size: x-large;">Se busca entender la situación actual de la inclusión laboral de personas con discapacidad en El Salvador 
+                    a partir del análisis y caracterización de la población con discapacidad en base a la Encuesta Nacional de 2015</p>
+                    <a href="{% url 'educacion' %}">
+                        <button type="button" class="btn btn-primary" style="margin-top: 10px;">Educación</button> 
+                    </a>               
+            </div>
+            <img src="{% static 'img/index2.jpg'%}" style ="width: 400px; height: 300px;">   
+        </div>
 
-        <div style="overflow: auto;">
-            <h4>Referente a la Educación</h4>
-            <p style="text-align: justify; float: left; width: 40%;">no sé que poner :v</p>
-            <img src="{% static 'img/index2.jpg'%}" style="float: right; width: 50%;">
-        </div>
-        <div  style="padding-bottom: 20px">
-            <button type="button" class="btn btn-primary" style="float:left;">Educación</button>
-        </div>
+        
 {% endblock content %}
     
     
