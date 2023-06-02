@@ -1,5 +1,5 @@
 {% extends 'layout/base.html' %}
-
+{% load static  %}
 
 {% block titulo %}
     Educación
@@ -219,9 +219,40 @@
         
     <h1 style="padding-top: 100px;">Análisis Gráfico</h1>
     
-    <div>
-        <img src="Proyecto/static/img/grafico1.png">
-    </div>
-    {% endblock content %}
-        
+     <div class="grafico">
+    <img src="{% static 'img/graficoE5.png'%}">
+    <p class="graf-desc">Poblacion total y poblacion discapacitado de estudiantes activos en universidades</p>
+  </div>
+
+  <div class="grafico">
+    <img src="{% static 'img/graficoE4.png'%}" />
+    <p class="graf-desc">
+      Distribución por género y tipo de discapacidad
+    </p>
+  </div>
+
+     <div class="grafico">
+    <img src="{% static 'img/graficoE3.png'%}">
+    <p class="graf-desc">Prevalencia por tipo de discapacidad</p>
+  </div>
+
+  <div class="grafico">
+    <img src="{% static 'img/graficoE1.png'%}" />
+    <p class="graf-desc">
+      Distribución por departamento
+    </p>
+  </div>
+
+     <div class="grafico">
+    <img src="{% static 'img/graficoE2.png'%}">
+    <p class="graf-desc">Distribucion por tipo de discapacidad en universidades</p>
+  </div>
+
+  <div class="grafico">
+    <img src="{% static 'img/graficoE6.png'%}" />
+    <p class="graf-desc">
+      Carreras cursadas por estudiantes con discapacidad, año 2020 solamente
+    </p>
+  </div>     
 </div>
+{% endblock content %}
