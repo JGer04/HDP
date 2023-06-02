@@ -4,15 +4,16 @@
 {% block titulo %}
     Trabajo
 {% endblock titulo %}
-
+{% load bootstrap5 %}
 
 {% block content %}
-    <h1>Nuevo Registro</h1>
+    <h1>Nuevo Registro - Categorías</h1>
     <form action="" method="post">
         {% csrf_token %}
-        <table>
+        {% bootstrap_form form %}
+       <!--<table>
             {{ form.as_table }}
-        </table>
+        </table>--> 
         <input type="submit" value="Guardar" class="btn btn-primary">
 </form>
 {% endblock content %}
