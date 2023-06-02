@@ -19,9 +19,26 @@
     </p>
     <div style="padding-top: 60px;" >
         <h3>Población de estudiantes con discapacidad activos en IES 2018 a 2020</h3><br>
+        
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+            
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
-                <tr><th>Año</th><th>Física</th><th>Intelectual</th><th>Sensorial</th><th>Mental</th><th>Total</th></tr>
+                <tr>
+                    <th>Año</th>
+                    <th>Física</th>
+                    <th>Intelectual</th>
+                    <th>Sensorial</th>
+                    <th>Mental</th>
+                    <th>Total</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}  
+                </tr>
             </thead>
             <tbody class="table-group-divider">
                 {% for e in tActivos %}
@@ -32,6 +49,11 @@
                         <td> {{ e.sensorial }}</td>
                         <td> {{ e.mental }}</td>
                         <td> {{ e.total }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %} 
                     </tr>
                 {% endfor %}      
             </tbody>
@@ -41,9 +63,23 @@
     <div style="padding-top: 60px;"> 
         <h3>Distribución de estudiantes con discapacidad por género y tipo 2018-2020</h3><br>
         <h3>Año 2018</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
-                <tr><th>Discapacidad</th><th>Masculino</th><th>Femenino</th></tr>
+                <tr>
+                    <th>Discapacidad</th>
+                    <th>Masculino</th>
+                    <th>Femenino</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}  
+                </tr>
             </thead>
             <tbody class="table-group-divider">
                 {% for i in t2018 %}
@@ -51,6 +87,11 @@
                         <td> {{ i.discapacidad }}</td>
                         <td> {{ i.masculino }}</td>
                         <td> {{ i.femenino }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %} 
                     </tr>
                 {% endfor %}
                     
@@ -58,9 +99,23 @@
         </table>
         
         <h3>Año 2019</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
-                <tr><th>Discapacidad</th><th>Masculino</th><th>Femenino</th></tr>
+                <tr>
+                    <th>Discapacidad</th>
+                    <th>Masculino</th>
+                    <th>Femenino</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}  
+                </tr>
             </thead>
             <tbody class="table-group-divider">
                 {% for i in t2019 %}
@@ -68,6 +123,11 @@
                         <td> {{ i.discapacidad }}</td>
                         <td> {{ i.masculino }}</td>
                         <td> {{ i.femenino }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %} 
                     </tr>
                 {% endfor %}
                     
@@ -75,9 +135,23 @@
         </table>
 
         <h3>Año 2020</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
-                <tr><th>Discapacidad</th><th>Masculino</th><th>Femenino</th></tr>
+                <tr>
+                    <th>Discapacidad</th>
+                    <th>Masculino</th>
+                    <th>Femenino</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}  
+                </tr>
             </thead>
             <tbody class="table-group-divider">
                 {% for i in t2020 %}
@@ -85,6 +159,11 @@
                         <td> {{ i.discapacidad }}</td>
                         <td> {{ i.masculino }}</td>
                         <td> {{ i.femenino }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %} 
                     </tr>
                 {% endfor %}
                     
@@ -95,6 +174,11 @@
     
     <div style="padding-top: 60px;">
         <h3>Prevalencia del tipo de discapacidad en estudiantes activos IES 2018-2020</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
                 <tr>
@@ -104,6 +188,11 @@
                     <th>2020</th>
                     <th>Total</th>
                     <th>Porcenaje</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}  
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -116,6 +205,11 @@
                         <td> {{ x.año_2020 }}</td>
                         <td> {{ x.total }}</td>
                         <td> {{ x.porcentaje }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %} 
                     </tr>
                 {% endfor %}
                     

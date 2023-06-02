@@ -20,6 +20,29 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Acerca De</a>
       </li>
+
+      <li class="nav-item dropdown">
+
+        
+        {% if request.user.is_authenticated %}
+        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ request.user.username }}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-start">
+          <li><a class="dropdown-item" href="/admin/">Perfil</a></li>
+          <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/admin/logout/">Cerrar Sesión</a></li>
+        </ul>
+      </li>
+      {% else %}
+      <a class="nav-link" href="/admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        iniciar Sesión
+      </a>
+        {% endif %}
+          
+        
+
     </ul>
   
 </nav>

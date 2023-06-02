@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from.models import *
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 
 def tablas(request):
@@ -21,4 +24,9 @@ def tablas(request):
         'tnivel':tnivel,
     })
 
+class crearTabla(CreateView):
+    template_name = 'trabajo/modificar.html'
+    model = tablaNivel
+    fields = ['nivel','total','hombre','mujer']
+    success_url = reverse_lazy('trabajo/trabajo.html')
 

@@ -19,9 +19,26 @@
     </p>
     <div style="padding-top: 60px;" >
         <h3>Encuesta zona Urbana</h3><br>
+
+        {% if request.user.is_superuser %}
+        
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+            
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
-                <tr><th>Grupos de Edad</th><th>Total</th><th>Hombre</th><th>Mujer</th></tr>
+                <tr>
+                    <th>Grupos de Edad</th>
+                    <th>Total</th>
+                    <th>Hombre</th>
+                    <th>Mujer</th>
+                    
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}    
+                </tr>
             </thead>
             <tbody class="table-group-divider">
                 {% for e in tUrbano %}
@@ -30,6 +47,11 @@
                         <td> {{ e.total }}</td>
                         <td> {{ e.hombre }}</td>
                         <td> {{ e.mujer }}</td>
+                        
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %}  
                     </tr>
                 {% endfor %}      
             </tbody>
@@ -38,9 +60,23 @@
         
     <div style="padding-top: 60px;"> 
         <h3>Encuesta zona Rural</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
-                <tr><th>Grupos de Edad</th><th>Total</th><th>Hombre</th><th>Mujer</th></tr>
+                <tr><th>Grupos de Edad</th>
+                    <th>Total</th>
+                    <th>Hombre</th>
+                    <th>Mujer</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}
+                </tr>
             </thead>
             <tbody class="table-group-divider">
                 {% for i in tRural %}
@@ -49,6 +85,11 @@
                         <td> {{ i.total }}</td>
                         <td> {{ i.hombre }}</td>
                         <td> {{ i.mujer }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                     
@@ -58,6 +99,11 @@
     
     <div style="padding-top: 60px;">
         <h3>Tipo de Discapacidad</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
                 <tr>
@@ -68,6 +114,11 @@
                     <th>Porcentaje Descocupadas</th>
                     <th>Número Inactivas</th>
                     <th>Número Inactivas</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -81,6 +132,11 @@
                         <td> {{ j.porcentaje_Desocupadas }}</td>
                         <td> {{ j.numero_Inactivas }}</td>
                         <td> {{ j.porcentaje_Inactivas }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                     
@@ -94,6 +150,11 @@
     
     <div style="padding-top: 60px;">
         <h3>Categorías</h3><br>
+
+        {% if request.user.is_superuser %}
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
                 <tr>
@@ -101,6 +162,11 @@
                     <th>Hombre</th>
                     <th>Mujer</th>
                     <th>Total</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -111,6 +177,11 @@
                         <td> {{ x.hombre }}</td>
                         <td> {{ x.mujer }}</td>
                         <td> {{ x.total }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                     
@@ -120,6 +191,14 @@
 
     <div style="padding-top: 60px;">
         <h3>Niveles</h3><br>
+
+        {% if request.user.is_superuser %}
+        <a href="{% url 'modificar' %}">
+            <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        {% endif %}
+        </a>
+            
+
         <table class="table table-striped" style="font-size: x-large;">
             <thead class="table-dark">
                 <tr>
@@ -127,6 +206,11 @@
                     <th>Total</th>
                     <th>Hombre</th>
                     <th>Mujer</th>
+
+                    {% if request.user.is_superuser %}
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -137,6 +221,11 @@
                         <td> {{ z.total }}</td>
                         <td> {{ z.hombre }}</td>
                         <td> {{ z.mujer }}</td>
+
+                        {% if request.user.is_superuser %}
+                        <td><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td><i class="fa-regular fa-trash"></i></td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                     

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'aplicaciones.index',
     # Aplicaciones externas
     'bootstrap5',
+    'fontawesomefree',
 ]
 
 
