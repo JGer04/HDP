@@ -21,7 +21,9 @@
         <h3>Población de estudiantes con discapacidad activos en IES 2018 a 2020</h3><br>
         
         {% if request.user.is_superuser %}
+        <a href="{% url 'ACcrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        </a>
         {% endif %}
             
         <table class="table table-striped" style="font-size: x-large;">
@@ -51,8 +53,13 @@
                         <td> {{ e.total }}</td>
 
                         {% if request.user.is_superuser %}
-                        <td><i class="fa-regular fa-pen-to-square"></i></td>
-                        <td><i class="fa-regular fa-trash"></i></td>
+                        <td> <a href="{% url 'ACmodificar' e.id %}">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                        <td><a href="{% url 'ACeliminar' e.id %}">
+                            <i class="fa-regular fa-trash"></i></td>
+                        </a>
                         {% endif %} 
                     </tr>
                 {% endfor %}      
@@ -65,7 +72,9 @@
         <h3>Año 2018</h3><br>
 
         {% if request.user.is_superuser %}
+        <a href="{% url '18crear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        </a>
         {% endif %}
 
         <table class="table table-striped" style="font-size: x-large;">
@@ -89,8 +98,13 @@
                         <td> {{ i.femenino }}</td>
 
                         {% if request.user.is_superuser %}
-                        <td><i class="fa-regular fa-pen-to-square"></i></td>
-                        <td><i class="fa-regular fa-trash"></i></td>
+                        <td> <a href="{% url '18modificar' i.id %}">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                        <td><a href="{% url '18eliminar' i.id %}">
+                            <i class="fa-regular fa-trash"></i></td>
+                        </a>
                         {% endif %} 
                     </tr>
                 {% endfor %}
@@ -101,7 +115,9 @@
         <h3>Año 2019</h3><br>
 
         {% if request.user.is_superuser %}
+        <a href="{% url '19crear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        </a>
         {% endif %}
 
         <table class="table table-striped" style="font-size: x-large;">
@@ -118,15 +134,20 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                {% for i in t2019 %}
+                {% for j in t2019 %}
                     <tr>
-                        <td> {{ i.discapacidad }}</td>
-                        <td> {{ i.masculino }}</td>
-                        <td> {{ i.femenino }}</td>
+                        <td> {{ j.discapacidad }}</td>
+                        <td> {{ j.masculino }}</td>
+                        <td> {{ j.femenino }}</td>
 
                         {% if request.user.is_superuser %}
-                        <td><i class="fa-regular fa-pen-to-square"></i></td>
-                        <td><i class="fa-regular fa-trash"></i></td>
+                        <td> <a href="{% url '19modificar' j.id %}">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                        <td><a href="{% url '19eliminar' j.id %}">
+                            <i class="fa-regular fa-trash"></i></td>
+                        </a>
                         {% endif %} 
                     </tr>
                 {% endfor %}
@@ -137,7 +158,9 @@
         <h3>Año 2020</h3><br>
 
         {% if request.user.is_superuser %}
+        <a href="{% url '20crear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        </a>
         {% endif %}
 
         <table class="table table-striped" style="font-size: x-large;">
@@ -154,15 +177,20 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                {% for i in t2020 %}
+                {% for k in t2020 %}
                     <tr>
-                        <td> {{ i.discapacidad }}</td>
-                        <td> {{ i.masculino }}</td>
-                        <td> {{ i.femenino }}</td>
+                        <td> {{ k.discapacidad }}</td>
+                        <td> {{ k.masculino }}</td>
+                        <td> {{ k.femenino }}</td>
 
                         {% if request.user.is_superuser %}
-                        <td><i class="fa-regular fa-pen-to-square"></i></td>
-                        <td><i class="fa-regular fa-trash"></i></td>
+                        <td> <a href="{% url '20modificar' k.id %}">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                        <td><a href="{% url '20eliminar' k.id %}">
+                            <i class="fa-regular fa-trash"></i></td>
+                        </a>
                         {% endif %} 
                     </tr>
                 {% endfor %}
@@ -176,7 +204,9 @@
         <h3>Prevalencia del tipo de discapacidad en estudiantes activos IES 2018-2020</h3><br>
 
         {% if request.user.is_superuser %}
+        <a href="{% url 'PRcrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
+        </a>
         {% endif %}
 
         <table class="table table-striped" style="font-size: x-large;">
@@ -207,9 +237,14 @@
                         <td> {{ x.porcentaje }}</td>
 
                         {% if request.user.is_superuser %}
-                        <td><i class="fa-regular fa-pen-to-square"></i></td>
-                        <td><i class="fa-regular fa-trash"></i></td>
-                        {% endif %} 
+                        <td> <a href="{% url 'PRmodificar' x.id %}">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                        <td><a href="{% url 'PReliminar' x.id %}">
+                            <i class="fa-regular fa-trash"></i></td>
+                        </a>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                     
