@@ -49,6 +49,13 @@ Clases
   padding-left: 220px;
 }
 
+.prueba{
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 350px;
+  border: 1px solid white;
+}
 /*
 =============== 
 Navbar
