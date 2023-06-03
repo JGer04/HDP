@@ -11,8 +11,9 @@ def tablas(request):
     tdiscapacidad = tablaTipoDiscapacidad.objects.all().order_by('id')
     tcategoria = tablaCategoria.objects.all().order_by('id')
     resumenn = resumen.objects.all().order_by('id')
-    analisiss = analisis.objects.all().order_by('id')
+    analisiss = analisis.objects.all()
     tnivel = tablaNivel.objects.all().order_by('id')
+    
     
     return render(request, 'trabajo/trabajo.html', {
         'tUrbano': tUrbano,
@@ -23,6 +24,9 @@ def tablas(request):
         'analisis': analisiss,
         'tnivel':tnivel,
     })
+
+
+
 # -------------------- CRUD DE TABLA NIVELES ------------------------------
 class crearTablaN(CreateView):
     template_name = 'trabajo/tabla-nivel/crear.html'

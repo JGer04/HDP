@@ -4,6 +4,7 @@ from . import views
 #app_name = 'trabajo_app'
 urlpatterns = [
     path('trabajo/trabajo', views.tablas, name='trabajo'),
+    
     #---------------- URLS DEL CRUD TABLA NIVEL -------------------------------------------------------
     path('trabajo/tabla-nivel/crear', views.crearTablaN.as_view(), name='Ncrear'),
     path('trabajo/tabla-nivel/modificar/<pk>/', views.modificarTablaN.as_view(), name='Nmodificar'),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('trabajo/tabla-categoria/crear', views.crearTablaCA.as_view(), name='CAcrear'),
     path('trabajo/tabla-categoria/modificar/<pk>/', views.modificarTablaCA.as_view(), name='CAmodificar'),
     path('trabajo/tabla-categoria/eliminar/<pk>/', views.eliminarTablaCA.as_view(), name='CAeliminar'),
+
 ]

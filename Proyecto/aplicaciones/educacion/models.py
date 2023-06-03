@@ -11,6 +11,16 @@ class Universidad(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class resumen(models.Model):
+    resumen = models.TextField()
+    class Meta:
+        verbose_name_plural = "Resumen"
+
+class analisis(models.Model):
+    analisis = models.TextField(default='')
+    class Meta:
+        verbose_name_plural = "Análisis"
  
 # TABLA 1
 class Estudiantes_Activos_IES(models.Model):

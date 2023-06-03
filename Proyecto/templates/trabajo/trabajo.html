@@ -5,12 +5,31 @@
   Trabajo 
 {% endblock titulo %} 
 
-
 {% block content %}
-<div>
-  <h1>Análisis Estadístico</h1>
-  <br />
-  <p style="font-size: x-large">
+
+<h1>Resumen</h1>
+<h3 style="margin-bottom: 50px;">Trabajo y Empleo. Discapacidad en El Salvador</h3>
+
+{% for b in resumen %}
+    <p style="font-size: x-large; margin-bottom: 50px;">
+         {{ b.resumen }}
+    </p>
+{% endfor %}
+
+<h1>Análisis de los datos obtenidos</h1>
+<h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
+
+{% for a in analisis %}
+    <p style="font-size: x-large; margin-bottom: 50px;">
+         {{ a.resumen }}
+    </p>
+{% endfor %}
+        
+
+<h1>Análisis Estadístico</h1>
+<h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
+<br>
+<p style="font-size: x-large">
     En 2015 se llevó a cabo en El Salvador la Encuesta Nacional de Personas con
     Discapacidad (ENPD), la que permitió recolectar información sobre personas
     con y sin discapacidad en una muestra de 5,102 hogares y 19,504 personas a
@@ -20,57 +39,63 @@
     discapacidad, como las deficiencias funcionales permanentes, el uso de
     apoyos y ayudas técnicas, el uso de servicios de habilitación y
     rehabilitación, y la accesibilidad en diferentes espacios.
-  </p>
-  <div style="padding-top: 60px">
+</p>
+<div style="padding-top: 60px">
     <h3>Encuesta Zona Urbana</h3>
     <br />
 
     {% if request.user.is_superuser %}
         <a href="{% url 'URcrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
-        </a>
-            
-            
-        {% endif %}
+        </a>   
+    {% endif %}
 
-        <table class="table table-striped" style="font-size: x-large;">
-            <thead class="table-dark">
-                <tr>
-                    <th>Grupos de Edad</th>
-                    <th>Total</th>
-                    <th>Hombre</th>
-                    <th>Mujer</th>
+<table class="table table-striped" style="font-size: x-large;">
+    <thead class="table-dark">
+        <tr>
+            <th>Grupos de Edad</th>
+            <th>Total</th>
+            <th>Hombre</th>
+            <th>Mujer</th>
                     
-                    {% if request.user.is_superuser %}
-                    <th>Modificar</th>
-                    <th>Eliminar</th>
-                    {% endif %}    
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                {% for e in tUrbano %}
-                    <tr>
-                        <td> {{ e.grupoEdad }}</td>
-                        <td> {{ e.total }}</td>
-                        <td> {{ e.hombre }}</td>
-                        <td> {{ e.mujer }}</td>
+            {% if request.user.is_superuser %}
+                 <th>Modificar</th>
+                <th>Eliminar</th>
+            {% endif %}    
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for e in tUrbano %}
+            <tr>
+                <td> {{ e.grupoEdad }}</td>
+                <td> {{ e.total }}</td>
+                <td> {{ e.hombre }}</td>
+                <td> {{ e.mujer }}</td>
                         
-                        {% if request.user.is_superuser %}
-                        <td> <a href="{% url 'URmodificar' e.id %}">
+                {% if request.user.is_superuser %}
+                    <td>
+                        <a href="{% url 'URmodificar' e.id %}">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
                     </td>
-                        <td><a href="{% url 'UReliminar' e.id %}">
-                            <i class="fa-regular fa-trash"></i></td>
+                    <td>
+                        <a href="{% url 'UReliminar' e.id %}">
+                            <i class="fa-regular fa-trash"></i>
                         </a>
-                        {% endif %}  
-                    </tr>
+                    </td>
+                        
+                {% endif %}  
+            </tr>
                 {% endfor %}      
-            </tbody>
-        </table>
-  </div>
+    </tbody>
+</table>
 
-  <div style="padding-top: 60px">
+<p class="graf-desc">
+    Tabla 1 CONAIPD. Población total de zona urbana y sexo
+</p>
+</div>
+
+<div style="padding-top: 60px">
     <h3>Encuesta Zona Rural</h3>
     <br />
 
@@ -78,46 +103,52 @@
         <a href="{% url 'RUcrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
         </a>
-        {% endif %}
+    {% endif %}
 
-        <table class="table table-striped" style="font-size: x-large;">
-            <thead class="table-dark">
-                <tr><th>Grupos de Edad</th>
-                    <th>Total</th>
-                    <th>Hombre</th>
-                    <th>Mujer</th>
+    <table class="table table-striped" style="font-size: x-large;">
+        <thead class="table-dark">
+            <tr>
+                <th>Grupos de Edad</th>
+                <th>Total</th>
+                <th>Hombre</th>
+                <th>Mujer</th>
 
-                    {% if request.user.is_superuser %}
+                {% if request.user.is_superuser %}
                     <th>Modificar</th>
                     <th>Eliminar</th>
-                    {% endif %}
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for i in tRural %}
+                <tr>
+                    <td> {{ i.grupoEdad }}</td>
+                    <td> {{ i.total }}</td>
+                    <td> {{ i.hombre }}</td>
+                    <td> {{ i.mujer }}</td>
+
+                    {% if request.user.is_superuser %}
+                        <td>
+                            <a href="{% url 'RUmodificar' i.id %}">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'RUeliminar' i.id %}">
+                                <i class="fa-regular fa-trash"></i></td>
+                        </a>
+                    {% endif %}  
                 </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                {% for i in tRural %}
-                    <tr>
-                        <td> {{ i.grupoEdad }}</td>
-                        <td> {{ i.total }}</td>
-                        <td> {{ i.hombre }}</td>
-                        <td> {{ i.mujer }}</td>
-
-                        {% if request.user.is_superuser %}
-                        <td> <a href="{% url 'RUmodificar' i.id %}">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a>
-                    </td>
-                        <td><a href="{% url 'RUeliminar' i.id %}">
-                            <i class="fa-regular fa-trash"></i></td>
-                        </a>
-                        {% endif %}  
-                    </tr>
-                {% endfor %}
+            {% endfor %}
                     
-            </tbody>
-        </table>
-  </div>
+        </tbody>
+    </table>
+    <p class="graf-desc">
+        Tabla 2 CONAIPD. Población total de zona rural y sexo
+    </p>
+</div>
 
-  <div style="padding-top: 60px">
+<div style="padding-top: 60px">
     <h3>Tipo de Discapacidad</h3>
     <br />
 
@@ -125,60 +156,60 @@
         <a href="{% url 'DIcrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
         </a>
-        {% endif %}
+    {% endif %}
 
-        <table class="table table-striped" style="font-size: x-large;">
-            <thead class="table-dark">
-                <tr>
-                    <th>Tipo Discapacidad</th>
-                    <th>Número Ocupadas</th>
-                    <th>Porcentaje Ocupadas</th>
-                    <th>Número Descocupadas</th>
-                    <th>Porcentaje Descocupadas</th>
-                    <th>Número Inactivas</th>
-                    <th>Número Inactivas</th>
+    <table class="table table-striped" style="font-size: x-large;">
+        <thead class="table-dark">
+            <tr>
+                <th>Tipo Discapacidad</th>
+                <th>Número Ocupadas</th>
+                <th>Porcentaje Ocupadas</th>
+                <th>Número Descocupadas</th>
+                <th>Porcentaje Descocupadas</th>
+                <th>Número Inactivas</th>
+                <th>Número Inactivas</th>
 
-                    {% if request.user.is_superuser %}
+                {% if request.user.is_superuser %}
                     <th>Modificar</th>
                     <th>Eliminar</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+                
+            {% for j in tdiscapacidad %}
+                <tr>
+                    <td> {{ j.discapacidad }}</td>
+                    <td> {{ j.numero_Ocupadas }}</td>
+                    <td> {{ j.porcentaje_Ocupadas }}</td>
+                    <td> {{ j.numero_Desocupadas }}</td>
+                    <td> {{ j.porcentaje_Desocupadas }}</td>
+                    <td> {{ j.numero_Inactivas }}</td>
+                    <td> {{ j.porcentaje_Inactivas }}</td>
+
+                    {% if request.user.is_superuser %}
+                        <td>
+                            <a href="{% url 'DImodificar' j.id %}">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                             </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'DIeliminar' j.id %}">
+                                <i class="fa-regular fa-trash"></i></td>
+                            </a>
                     {% endif %}
                 </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                
-                {% for j in tdiscapacidad %}
-                    <tr>
-                        <td> {{ j.discapacidad }}</td>
-                        <td> {{ j.numero_Ocupadas }}</td>
-                        <td> {{ j.porcentaje_Ocupadas }}</td>
-                        <td> {{ j.numero_Desocupadas }}</td>
-                        <td> {{ j.porcentaje_Desocupadas }}</td>
-                        <td> {{ j.numero_Inactivas }}</td>
-                        <td> {{ j.porcentaje_Inactivas }}</td>
-
-                        {% if request.user.is_superuser %}
-                        <td> <a href="{% url 'DImodificar' j.id %}">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a>
-                    </td>
-                        <td><a href="{% url 'DIeliminar' j.id %}">
-                            <i class="fa-regular fa-trash"></i></td>
-                        </a>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
+            {% endfor %}
                     
-            </tbody>
-        </table>
-    <p style="font-size: x-large">
-      Esta tabla resume bien lo que es de interés para el desarrollo de la
-      investigación. Y un aspecto importante es que vemos que pese a ser el tipo
-      de discapacidad que más prevalece, es el grupo con mayor número de
-      personas trabajando.
+        </tbody>
+    </table>
+    <p class="graf-desc">
+        Tabla 3. Condición de actividad económica de la población de
+        18 a 59 años
     </p>
-  </div>
+</div>
 
-  <div style="padding-top: 60px">
+<div style="padding-top: 60px">
     <h3>Categorías</h3>
     <br />
 
@@ -186,109 +217,122 @@
         <a href="{% url 'CAcrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
         </a>
-        {% endif %}
+    {% endif %}
 
-        <table class="table table-striped" style="font-size: x-large;">
-            <thead class="table-dark">
-                <tr>
-                    <th>Categoría</th>
-                    <th>Hombre</th>
-                    <th>Mujer</th>
-                    <th>Total</th>
+    <table class="table table-striped" style="font-size: x-large;">
+        <thead class="table-dark">
+            <tr>
+                <th>Categoría</th>
+                <th>Hombre</th>
+                <th>Mujer</th>
+                 <th>Total</th>
 
-                    {% if request.user.is_superuser %}
+                {% if request.user.is_superuser %}
                     <th>Modificar</th>
                     <th>Eliminar</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+                
+            {% for x in tcategoria %}
+                <tr>
+                    <td> {{ x.categoria }}</td>
+                    <td> {{ x.hombre }}</td>
+                    <td> {{ x.mujer }}</td>
+                    <td> {{ x.total }}</td>
+
+                    {% if request.user.is_superuser %}
+                        <td>
+                            <a href="{% url 'CAmodificar' x.id %}">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'CAeliminar' x.id %}">
+                                <i class="fa-regular fa-trash"></i></td>
+                            </a>
                     {% endif %}
                 </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                
-                {% for x in tcategoria %}
-                    <tr>
-                        <td> {{ x.categoria }}</td>
-                        <td> {{ x.hombre }}</td>
-                        <td> {{ x.mujer }}</td>
-                        <td> {{ x.total }}</td>
-
-                        {% if request.user.is_superuser %}
-                        <td> <a href="{% url 'CAmodificar' x.id %}">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a>
-                    </td>
-                        <td><a href="{% url 'CAeliminar' x.id %}">
-                            <i class="fa-regular fa-trash"></i></td>
-                        </a>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
+            {% endfor %}
                     
-            </tbody>
-        </table>
-  </div>
+        </tbody>
+    </table>
+    <p class="graf-desc">
+        Tabla 4. Categoria, personas con discapacidad
+    </p>
+</div>
 
-  <div style="padding-top: 60px">
+<div style="padding-top: 60px">
     <h3>Niveles</h3>
     <br />
 
     {% if request.user.is_superuser %}
         <a href="{% url 'Ncrear' %}">
             <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Crear nuevo archivo</button>
-        {% endif %}
         </a>
+    {% endif %}
+        
             
 
-        <table class="table table-striped" style="font-size: x-large;">
-            <thead class="table-dark">
-                <tr>
-                    <th>Niveles</th>
-                    <th>Total</th>
-                    <th>Hombre</th>
-                    <th>Mujer</th>
+    <table class="table table-striped" style="font-size: x-large;">
+        <thead class="table-dark">
+            <tr>
+                <th>Niveles</th>
+                <th>Total</th>
+                <th>Hombre</th>
+                <th>Mujer</th>
 
-                    {% if request.user.is_superuser %}
+                {% if request.user.is_superuser %}
                     <th>Modificar</th>
                     <th>Eliminar</th>
+                 {% endif %}
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+                
+            {% for z in tnivel %}
+                <tr>
+                    <td> {{ z.nivel }}</td>
+                    <td> {{ z.total }}</td>
+                    <td> {{ z.hombre }}</td>
+                    <td> {{ z.mujer }}</td>
+
+                    {% if request.user.is_superuser %}
+                        <td>
+                            <a href="{% url 'Nmodificar' z.id %}">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'Neliminar' z.id %}">
+                                <i class="fa-regular fa-trash"></i></td>
+                            </a>
+                            
                     {% endif %}
                 </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                
-                {% for z in tnivel %}
-                    <tr>
-                        <td> {{ z.nivel }}</td>
-                        <td> {{ z.total }}</td>
-                        <td> {{ z.hombre }}</td>
-                        <td> {{ z.mujer }}</td>
-
-                        {% if request.user.is_superuser %}
-                        <td> <a href="{% url 'Nmodificar' z.id %}">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a>
-                    </td>
-                        <td><a href="{% url 'Neliminar' z.id %}">
-                            <i class="fa-regular fa-trash"></i></td>
-                        </a>
-                            
-                        {% endif %}
-                    </tr>
-                {% endfor %}
+            {% endfor %}
                     
-            </tbody>
-        </table>
-  </div>
+        </tbody>
+    </table>
+    <p class="graf-desc">
+        5. Personas con discapacidad ocupadas, de 16 años y más
+    </p>
+</div>
 
-  <h1 style="padding-top: 100px">Análisis Gráfico</h1>
- <div class="grafico">
+<h1 style="padding-top: 100px">Análisis Gráfico</h1>
+<h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
+
+<div class="grafico">
     <img src="{% static 'img/grafico1.png'%}">
     <p class="graf-desc">Población con discapacidad por edades y género</p>
-  </div>
+</div>
 
-  <div class="grafico graf2">
+<div class="grafico graf2">
     <img src="{% static 'img/grafico2.png'%}" />
     <p class="graf-desc">
       Prevalencia de discapacidad, por tipo, en la población de 18 años y más.
     </p>
-  </div>
 </div>
+
  {% endblock content %}

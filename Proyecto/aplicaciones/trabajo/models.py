@@ -17,7 +17,7 @@ class resumen(models.Model):
         verbose_name_plural = "Resumen"
 
 class analisis(models.Model):
-    resumen = models.TextField()
+    analisis = models.TextField(default='')
     class Meta:
         verbose_name_plural = "Análisis"
     
