@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'aplicaciones.trabajo',
     'aplicaciones.educacion',
     'aplicaciones.index',
+    'aplicaciones.referencia',
+    'aplicaciones.acercade',
     # Aplicaciones externas
     'bootstrap5',
     'fontawesomefree',
