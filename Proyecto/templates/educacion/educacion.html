@@ -7,23 +7,23 @@
 
 {% block content %}
 
-<h1>Resumen</h1>
+<h1 class="titulo1">Resumen</h1>
 <h3 style="margin-bottom: 50px">Educación. Discapacidad en El Salvador</h3>
 
 {% for b in resumen %}
-    <p style="font-size: x-large; margin-bottom: 50px;">
+    <p class="justificado" style="font-size: x-large; margin-bottom: 50px;">
          {{ b.resumen }}
     </p>
 {% endfor %}
 
-<div class="grafico">
-    <div class="prueba">
+<div class="prueba">
+    <div class="uno">
         <img src="{% static 'img/img1-resumen-E.jpg'%}" />
     </div>
 </div>
 
-<div class="grafico">
-    <div class="prueba">
+<div class="prueba">
+    <div class="dos">
         <img src="{% static 'img/img2-resumen-E.jpg'%}" />
     </div>
 </div>
@@ -32,20 +32,20 @@
 <h3>Educación. Discapacidad en El Salvador</h3>
 
 {% for a in analisis %}
-    <p style="font-size: x-large; margin-bottom: 50px;">
+    <p class="justificado" style="font-size: x-large; margin-bottom: 50px;">
          {{ a.resumen }}
     </p>
 {% endfor %}
 
-<div class="grafico">
-    <div class="prueba">
+<div class="prueba">
+    <div class="tres">
         <img src="{% static 'img/img3-resumen-E.jpg'%}" />
     </div>
 </div>
 
 <h1>Análisis Estadístico</h1>
 <h3>Educación. Discapacidad en El Salvador</h3>
-<p style="font-size: x-large; margin-top: 50px">
+<p class="justificado" style="font-size: x-large; margin-top: 50px">
     Se presenta a continuación datos estadísticos relevantes relacionados 
     al acceso a la educación para las personas con discapacidad. Todos los 
     datos de esta sección fueron tomados de la investigación titulada “Caracterización de 

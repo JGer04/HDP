@@ -7,23 +7,23 @@
 
 {% block content %}
 
-<h1>Resumen</h1>
+<h1 class="titulo1">Resumen</h1>
 <h3 style="margin-bottom: 50px;">Trabajo y Empleo. Discapacidad en El Salvador</h3>
 
 {% for b in resumen %}
-    <p style="font-size: x-large; margin-bottom: 50px;">
+    <p class="justificado" style="font-size: x-large; margin-bottom: 50px;">
          {{ b.resumen }}
     </p>
 {% endfor %}
 
-<div class="grafico">
-    <div class="prueba">
+<div class="prueba">
+    <div class="uno">
         <img src="{% static 'img/img1-resumen-T.jpg'%}" />
     </div>
 </div>
 
-<div class="grafico">
-    <div class="prueba">
+<div class="prueba">
+    <div class="dos">
         <img src="{% static 'img/img2-resumen-T.jpg'%}" />
     </div>
 </div>
@@ -32,13 +32,13 @@
 <h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
 
 {% for a in analisis %}
-    <p style="font-size: x-large; margin-bottom: 50px;">
+    <p class="justificado" style="font-size: x-large; margin-bottom: 50px;">
          {{ a.resumen }}
     </p>
 {% endfor %}
         
-<div class="grafico">
-    <div class="prueba">
+<div class="prueba">
+    <div class="tres">
         <img src="{% static 'img/img3-resumen-T.jpg'%}" />
     </div>
 </div>
@@ -46,7 +46,7 @@
 <h1>Análisis Estadístico</h1>
 <h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
 <br>
-<p style="font-size: x-large">
+<p class="justificado" style="font-size: x-large">
     En 2015 se llevó a cabo en El Salvador la Encuesta Nacional de Personas con
     Discapacidad (ENPD), la que permitió recolectar información sobre personas
     con y sin discapacidad en una muestra de 5,102 hogares y 19,504 personas a
