@@ -11,6 +11,8 @@ def tablas(request):
     t2019 = Estudiantes_Genero_Tipo_2019.objects.all().order_by('id')
     t2020 = Estudiantes_Genero_Tipo_2020.objects.all().order_by('id')
     tPrevalencia = Prevalencia_Estudiantes_Activos_IES.objects.all().order_by('id')
+    resumenn = resumen.objects.all().order_by('id')
+    analisiss = analisis.objects.all()
 
     return render(request, 'educacion/educacion.html',{
         'tActivos':tActivos,
@@ -18,9 +20,12 @@ def tablas(request):
         't2019':t2019,
         't2020':t2020,
         'tPrevalencia':tPrevalencia,
+        'resumen': resumenn,
+        'analisis': analisiss,
+        
     })
 
-# -------------------- CRUD DE TABLA ESTUDIANTS ACTIVOS IES ------------------------------
+# -------------------- CRUD DE TABLA ESTUDIANTES ACTIVOS IES ------------------------------
 class crearTablaAC(CreateView):
     template_name = 'educacion/tabla-activos/crear.html'
     model = Estudiantes_Activos_IES
@@ -124,4 +129,5 @@ class eliminarTablaPR(DeleteView):
     fields = ['discapacidad','año_2018','año_2019','año_2020','total','porcentaje']
     success_message = "El registro %(nombre)s fue eliminado exitosamente"
     success_url = reverse_lazy('educacion')
+
 

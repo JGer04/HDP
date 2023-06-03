@@ -29,5 +29,4 @@ urlpatterns = [
     path('trabajo/tabla-categoria/crear', views.crearTablaCA.as_view(), name='CAcrear'),
     path('trabajo/tabla-categoria/modificar/<pk>/', views.modificarTablaCA.as_view(), name='CAmodificar'),
     path('trabajo/tabla-categoria/eliminar/<pk>/', views.eliminarTablaCA.as_view(), name='CAeliminar'),
-
 ]

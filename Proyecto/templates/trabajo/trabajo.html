@@ -10,8 +10,14 @@
 <h1 class="titulo1">Resumen</h1>
 <h3 style="margin-bottom: 50px;">Trabajo y Empleo. Discapacidad en El Salvador</h3>
 
+{% if request.user.is_superuser %}
+    <a href="/admin/trabajo/resumen/">
+        <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Modificar Resumen</button>
+    </a>   
+{% endif %}
+
 {% for b in resumen %}
-    <p class="justificado" style="font-size: x-large; margin-bottom: 50px;">
+    <p class="justificado" style="font-size: x-large;">
          {{ b.resumen }}
     </p>
 {% endfor %}
@@ -28,12 +34,18 @@
     </div>
 </div>
 
-<h1>Análisis de los datos obtenidos</h1>
-<h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
+<h1 class ="titulo1">Análisis de los datos obtenidos</h1>
+<h3 style="margin-bottom: 50px;">Trabajo y Empleo. Discapacidad en El Salvador</h3>
+
+{% if request.user.is_superuser %}
+    <a href="/admin/trabajo/analisis/">
+        <button style="margin-bottom: 50px;" type="button" class="btn btn-primary">Modificar Análisis</button>
+    </a>   
+{% endif %}
 
 {% for a in analisis %}
-    <p class="justificado" style="font-size: x-large; margin-bottom: 50px;">
-         {{ a.resumen }}
+    <p class="justificado" style="font-size: x-large;">
+         {{ a.analisis }}
     </p>
 {% endfor %}
         
@@ -43,7 +55,7 @@
     </div>
 </div>
 
-<h1>Análisis Estadístico</h1>
+<h1 class="titulo1">Análisis Estadístico</h1>
 <h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
 <br>
 <p class="justificado" style="font-size: x-large">
@@ -337,7 +349,7 @@
     </p>
 </div>
 
-<h1 style="padding-top: 100px">Análisis Gráfico</h1>
+<h1 class="titulo1">Análisis Gráfico</h1>
 <h3>Trabajo y Empleo. Discapacidad en El Salvador</h3>
 
 <div class="grafico">

@@ -29,4 +29,5 @@ urlpatterns = [
     path('educacion/tabla-preva/modificar/<pk>/', views.modificarTablaPR.as_view(), name='PRmodificar'),
     path('educacion/tabla-preva/eliminar/<pk>/', views.eliminarTablaPR.as_view(), name='PReliminar'),
     
+    
 ]

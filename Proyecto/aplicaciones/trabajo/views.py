@@ -101,14 +101,14 @@ class crearTablaDI(CreateView):
     success_url = reverse_lazy('trabajo')
 
 class modificarTablaDI(UpdateView):
-    template_name = 'trabajo/tipo-disc/crear.html'
+    template_name = 'trabajo/tipo-disc/modificar.html'
     model = tablaTipoDiscapacidad
     fields = ['discapacidad','numero_Ocupadas','porcentaje_Ocupadas','numero_Desocupadas','porcentaje_Desocupadas','numero_Inactivas','porcentaje_Inactivas']
     success_message = "El registro %(nombre)s fue eliminado exitosamente"
     success_url = reverse_lazy('trabajo')
 
 class eliminarTablaDI(DeleteView):
-    template_name = 'trabajo/tipo-disc/crear.html'
+    template_name = 'trabajo/tipo-disc/eliminar.html'
     model = tablaTipoDiscapacidad
     fields = ['discapacidad','numero_Ocupadas','porcentaje_Ocupadas','numero_Desocupadas','porcentaje_Desocupadas','numero_Inactivas','porcentaje_Inactivas']
     success_message = "El registro %(nombre)s fue eliminado exitosamente"
@@ -123,16 +123,28 @@ class crearTablaCA(CreateView):
     success_url = reverse_lazy('trabajo')
 
 class modificarTablaCA(UpdateView):
-    template_name = 'trabajo/tabla-categoria/crear.html'
+    template_name = 'trabajo/tabla-categoria/modificar.html'
     model = tablaCategoria
     fields = ['categoria','hombre','mujer','total']
     success_url = reverse_lazy('trabajo')
 
 class eliminarTablaCA(DeleteView):
-    template_name = 'trabajo/tabla-categoria/crear.html'
+    template_name = 'trabajo/tabla-categoria/eliminar.html'
     model = tablaCategoria
     fields = ['categoria','hombre','mujer','total']
     success_message = "El registro %(nombre)s fue eliminado exitosamente"
     success_url = reverse_lazy('trabajo')
 
+# -------------------- CRUD DE RESUMEN ---------------------------
+#class modificarResumen(UpdateView):
+#   template_name = 'trabajo/resumen/modificar.html'
+#   model = resumen
+#   fields = ['resumen']
+#   success_url = reverse_lazy('trabajo')
 
+# -------------------- CRUD DE ANÁLISIS ---------------------------
+#class modificarAnalisis(UpdateView):
+#   template_name = 'trabajo/analisis/modificar.html'
+#   model = analisis
+#   fields = ['analisis']
+#   success_url = reverse_lazy('trabajo')
