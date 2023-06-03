@@ -11,9 +11,24 @@
         style="width: 150px; height: 150px"
       />
     </li>
-    <li>Inicio</li>
-    <li>Acerca de</li>
-    <li>Servicios</li>
-    <li>Contacto</li>
+    <li class="nav-item active">
+      <a href= "{% url 'inicio' %}">
+        Inicio
+      </a>   
+    </li>
+    <li class="nav-item active">
+      <a href= "{% url 'trabajo' %}">
+        Trabajo y Empleo
+      </a>   
+    </li>
+    <li class="nav-item active">
+      <a href= "{% url 'educacion' %}">
+        Educación
+      </a>   
+      <li class="nav-item active">
+        <a href= "{% url 'inicio' %}">
+          Referencias
+        </a>   
+      </li>
   </ul>
 </div>

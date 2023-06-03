@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+# --------- MODELO DE EMPRESAS ----------------------
 class Empresa(models.Model):
     nombre = models.CharField('nombre', max_length=50)
     total_trabajadores = models.IntegerField('total_trabajadores',)
@@ -11,16 +13,19 @@ class Empresa(models.Model):
     def __str__(self):
         return self.nombre
     
+# --------- MODELO RESUMEN ----------------------
 class resumen(models.Model):
     resumen = models.TextField()
     class Meta:
         verbose_name_plural = "Resumen"
 
+# --------- MODELO ANÁLISIS ----------------------
 class analisis(models.Model):
     analisis = models.TextField(default='')
     class Meta:
         verbose_name_plural = "Análisis"
-    
+
+# --------- MODELO DE LA TABLA NIVELES ----------------------
 class tablaNivel(models.Model):
     nivel = models.CharField(max_length=50)
     total = models.IntegerField()
@@ -31,7 +36,8 @@ class tablaNivel(models.Model):
 
     def __str__(self):
         return self.nivel
-    
+
+# --------- MODELO DE LA ENCUESTA EN ZONA URBANA ----------------------
 class tablaEncuestaUrbana(models.Model):
     grupoEdad = models.CharField(max_length=50)
     total = models.IntegerField()
@@ -43,6 +49,7 @@ class tablaEncuestaUrbana(models.Model):
     def __str__(self):
         return str(self.total)
 
+# --------- MODELO DE LA ENCUESTA EN ZONA RURAL ----------------------
 class tablaEncuestaRural(models.Model):
     grupoEdad = models.CharField(max_length=50)
     total = models.IntegerField()
@@ -54,6 +61,7 @@ class tablaEncuestaRural(models.Model):
     def __str__(self):
         return str(self.total)
     
+# --------- MODELO DE LA TABLA CATEGORÍA ----------------------
 class tablaCategoria(models.Model):
     categoria = models.CharField(max_length=50)
     hombre = models.IntegerField()
@@ -64,7 +72,8 @@ class tablaCategoria(models.Model):
     
     def __str__(self):
         return str(self.categoria)
-    
+
+# --------- MODELO DE LA TABLA DE TIPO DE DISCAPACIDAD ----------------------
 class tablaTipoDiscapacidad(models.Model):
     discapacidad = models.CharField(max_length=50, default='')
     numero_Ocupadas = models.IntegerField(default=0)
