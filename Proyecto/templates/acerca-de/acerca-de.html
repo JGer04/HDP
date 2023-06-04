@@ -1,5 +1,5 @@
 {% extends 'layout/base.html' %}
-
+{% load static  %}
 
 {% block titulo %}
     Acerca De
@@ -7,13 +7,57 @@
 
 
 {% block content %}
-    <div>
-        
-    </div>
-    <p>
+    <br>
+    <h2>Sobre el sitio web</h2>
+    <p style="font-size: x-large">
+        El desarrollo de este sitio web se dio bajo el proyecto de la materia
+        <b>Herramientas de Productividad (HDP115)</b> impartida en la  Escuela de Ingeniería de Sistemas Informáticos de
+        la Facultad de Ingeniería y Arquitectura de la <b>Universidad de El Salvador</b> el ciclo 1 del año 2023. <br />
+        La finalidad del proyecto es presentar información estadística sobre las personas con <b>discapacidad</b> en los
+        ámbitos académicos de educación superior y laborales. Para la realización se utilizaron las herramientas:
+        Django, Achievo, SVN y RedHat como servidor, el proyecto fue supervisado por los docentes:
+        <b>Ing. Boris Navarrete</b> y <b>Ing Oscar Diaz</b>.
 
-        AQUI VA EL ACERCA DE XD
+
     </p>
+    <br>
+    <h2>Integrantes</h2>
+    
+    <div style="display: flex; align-items: center;" class="apartado" >
+        <div class="foto">
+            <img src="{% static 'img/IntegranteEduardo.png'%}" style ="width: 200px; height: 225px;"> 
+        </div>
+        <div style="margin-left: 50px;">
+            <h3>Eduardo Enrique López Rodríguez</h3>
+            <h4>Carnet: LR21008</h4>
+            <h4>Correo: lr21008@ues.edu.sv</h4>
+        </div>
+    </div>
+    <br>
+    <div style="display: flex; align-items: center;" class="apartado" >
+        <div class="foto">
+            <img src="{% static 'img/IntegranteGerson.jpeg'%}" style ="width: 200px; height: 225px;"> 
+        </div>
+        <div style="margin-left: 50px;">
+            <h3>Gerson Alexander Juárez Ortiz</h3>
+            <h4>Carnet: JO20004</h4>
+            <h4>Correo: jo20004@ues.edu.sv</h4>
+        </div>
+    </div>
+    <br>
+    <div style="display: flex; align-items: center;" class="apartado" >
+        <div class="foto">
+            <img src="{% static 'img/IntegranteDaniel.png'%}" style ="width: 200px; height: 225px;"> 
+        </div>
+        <div style="margin-left: 50px;">
+            <h3>Daniel Andrés Medrano Martínez</h3>
+            <h4>Carnet: MM21030</h4>
+            <h4>Correo: mm21030@ues.edu.sv</h4>
+        </div>
+    </div>
+
+    
+
 {% endblock content %}
     
     
